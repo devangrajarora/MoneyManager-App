@@ -65,6 +65,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(25.0)),
                   child: TextField(
+                    keyboardType: TextInputType.emailAddress,
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       filled: true,

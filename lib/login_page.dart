@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:money_manager/constants.dart';
 import 'package:money_manager/register_page.dart';
+import 'package:money_manager/landingscreen.dart';
 
 class MyLoginPage extends StatefulWidget {
   @override
@@ -44,6 +45,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(25.0)),
                   child: TextField(
+                    keyboardType: TextInputType.emailAddress,
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       filled: true,
@@ -91,7 +93,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           end: Alignment.topRight,
                           colors: [Color(0xFFB816DA), Color(0xFFD127A6)])),
                   child: FlatButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LandingScreen()),
+                        );
+                      },
                       child: Center(
                         child: Text(
                           'Log in',
