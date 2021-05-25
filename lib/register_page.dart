@@ -113,7 +113,13 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                           end: Alignment.topRight,
                           colors: [Color(0xFFB816DA), Color(0xFFD127A6)])),
                   child: FlatButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyLoginPage()),
+                        );
+                      },
                       child: Center(
                         child: Text(
                           'Sign Up',

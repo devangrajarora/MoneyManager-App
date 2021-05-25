@@ -11,7 +11,7 @@ Widget HomeTab() {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         verticalBoxLarge,
-        verticalBoxExtra,
+        verticalBoxLarge,
         Expanded(
             child: Text(
           'Hello, Vishrut',
