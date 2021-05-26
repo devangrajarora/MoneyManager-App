@@ -12,6 +12,13 @@ class LandingScreen extends StatefulWidget {
 }
 
 class _LandingScreenState extends State<LandingScreen> {
+  void addItemToList() {
+    setState(() {
+      values.insert(0, 55);
+      categories.insert(0, 'Groceries');
+    });
+  }
+
   DateTime selectedDate = DateTime.now();
 
   Future<void> _selectDate(BuildContext context) async {
@@ -146,6 +153,7 @@ class _LandingScreenState extends State<LandingScreen> {
                             colors: [Color(0xFFB816DA), Color(0xFFD127A6)])),
                     child: TextButton(
                         onPressed: () {
+                          addItemToList();
                           Fluttertoast.showToast(
                               msg: "Transaction Added",
                               toastLength: Toast.LENGTH_SHORT,

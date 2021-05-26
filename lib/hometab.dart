@@ -2,7 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:money_manager/constants.dart';
 
-var values = [200, -300, 500, 100, 600, -750, 900, 1000];
+var values = [-200, 30000, -500, -100, -600, -750, -900, -1000];
+var categories = [
+  'Food',
+  'Salary',
+  'Transport',
+  'Entertainment',
+  'Food',
+  'Food',
+  'Transport',
+  'Entertainment'
+];
 
 Widget HomeTab() {
   return Padding(
@@ -74,32 +84,7 @@ Widget HomeTab() {
                 ),
                 verticalBoxSmall,
                 Expanded(
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          color: Colors.white12,
-                          child: ListTile(
-                            leading: values[index].toInt() < 0
-                                ? Icon(Icons.remove_circle, color: Colors.red)
-                                : Icon(Icons.add, color: Colors.green),
-                            title: Text('11/05/2021',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20.0)),
-                            subtitle: Text('Food',
-                                style: TextStyle(
-                                    color: Colors.pink.shade800,
-                                    fontSize: 15.0)),
-                            trailing: Text(values[index].toString(),
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: values[index].toInt() > 0
-                                        ? Colors.green
-                                        : Colors.red)),
-                          ),
-                        );
-                      },
-                      itemCount: values.length),
+                  child: RecordTiles(),
                 )
               ],
             ),
@@ -108,4 +93,43 @@ Widget HomeTab() {
       ],
     ),
   );
+}
+
+class RecordTiles extends StatefulWidget {
+  const RecordTiles({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  _RecordTilesState createState() => _RecordTilesState();
+}
+
+class _RecordTilesState extends State<RecordTiles> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          return Card(
+            color: Colors.white12,
+            child: ListTile(
+              leading: values[index].toInt() < 0
+                  ? Icon(Icons.remove_circle, color: Colors.red)
+                  : Icon(Icons.add, color: Colors.green),
+              title: Text('11/05/2021',
+                  style: TextStyle(color: Colors.white, fontSize: 20.0)),
+              subtitle: Text(categories[index],
+                  style:
+                      TextStyle(color: Colors.pink.shade800, fontSize: 15.0)),
+              trailing: Text(values[index].toString(),
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: values[index].toInt() > 0
+                          ? Colors.green
+                          : Colors.red)),
+            ),
+          );
+        },
+        itemCount: values.length);
+  }
 }
